@@ -1,0 +1,52 @@
+.cursor {
+  width: 12px;
+  height: 12px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border-radius: 50%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+
+  mix-blend-mode: difference;
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 24px rgba(255, 255, 255, 0.6);
+}
+
+.cursorOutline {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  border-radius: 50%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+
+  z-index: 9998;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    border 0.2s ease;
+
+  mix-blend-mode: difference;
+
+  backdrop-filter: blur(4px);
+}

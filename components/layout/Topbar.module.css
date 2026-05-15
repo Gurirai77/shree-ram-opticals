@@ -1,0 +1,49 @@
+.topbar {
+  background: #000;
+  color: white;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 24px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftText {
+  letter-spacing: 1px;
+}
+
+.centerText {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.rightSection button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rightSection button:hover {
+  color: #c8a96b;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    display: none;
+  }
+}

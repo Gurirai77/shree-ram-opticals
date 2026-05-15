@@ -1,0 +1,277 @@
+.section {
+  padding: 70px 0;
+
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1350px;
+
+  margin: auto;
+
+  padding: 0 20px;
+}
+
+/* ---------- HEADING ---------- */
+
+.heading {
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.heading p {
+  color: #c8a96b;
+
+  letter-spacing: 3px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.heading h2 {
+  font-size: 38px;
+
+  color: #111;
+
+  margin-bottom: 10px;
+
+  font-weight: 700;
+}
+
+.heading span {
+  color: #666;
+
+  font-size: 15px;
+}
+
+/* ---------- GRID ---------- */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr;
+
+  gap: 20px;
+}
+
+/* ---------- LARGE CARD ---------- */
+
+.largeCard {
+  position: relative;
+
+  height: 580px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.largeCard img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s ease;
+}
+
+.largeCard:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- RIGHT SIDE ---------- */
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.smallCard {
+  position: relative;
+
+  height: 280px;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.smallCard img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s ease;
+}
+
+.smallCard:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- OVERLAY ---------- */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72),
+    rgba(0, 0, 0, 0.15)
+  );
+}
+
+/* ---------- CONTENT ---------- */
+
+.content {
+  position: absolute;
+
+  bottom: 35px;
+  left: 35px;
+
+  z-index: 2;
+}
+
+.content p {
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 12px;
+}
+
+.content h3 {
+  color: white;
+
+  font-size: 46px;
+
+  line-height: 1.1;
+
+  margin-bottom: 22px;
+
+  font-weight: 700;
+}
+
+.content button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.14);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: white;
+
+  padding: 12px 18px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s ease;
+}
+
+.content button span {
+  transition: 0.3s ease;
+}
+
+.largeCard:hover .content button span {
+  transform: translateX(4px);
+}
+
+/* ---------- SMALL CONTENT ---------- */
+
+.smallContent {
+  position: absolute;
+
+  bottom: 25px;
+  left: 25px;
+
+  z-index: 2;
+}
+
+.smallContent p {
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+.smallContent h4 {
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .largeCard {
+    height: 420px;
+  }
+
+  .smallCard {
+    height: 240px;
+  }
+
+  .content h3 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  .heading h2 {
+    font-size: 28px;
+  }
+
+  .largeCard {
+    height: 340px;
+  }
+
+  .smallCard {
+    height: 220px;
+  }
+
+  .content {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .content h3 {
+    font-size: 28px;
+  }
+
+  .smallContent h4 {
+    font-size: 22px;
+  }
+}
