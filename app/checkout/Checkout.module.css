@@ -1,0 +1,170 @@
+.section {
+  padding: 90px 0;
+
+  background: #f8f6f2;
+}
+
+.container {
+  max-width: 760px;
+
+  margin: auto;
+
+  padding: 0 20px;
+}
+
+/* ---------- BOX ---------- */
+
+.box {
+  background: white;
+
+  border-radius: 36px;
+
+  padding: 50px;
+
+  box-shadow:
+    0 12px 34px rgba(0,0,0,0.05);
+}
+
+/* ---------- HEADING ---------- */
+
+.heading {
+  margin-bottom: 40px;
+}
+
+.heading p {
+  color: #c8a96b;
+
+  letter-spacing: 4px;
+
+  font-size: 12px;
+
+  margin-bottom: 16px;
+}
+
+.heading h1 {
+  font-size: 54px;
+
+  color: #111;
+
+  margin-bottom: 16px;
+}
+
+.heading span {
+  color: #666;
+
+  line-height: 1.8;
+
+  font-size: 15px;
+}
+
+/* ---------- FORM ---------- */
+
+.form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.inputGroup label {
+  color: #111;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+
+  border: 1px solid #ddd;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s ease;
+
+  background: #fafafa;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #c8a96b;
+
+  background: white;
+}
+
+.inputGroup textarea {
+  height: 140px;
+
+  resize: none;
+}
+
+/* ---------- BUTTON ---------- */
+
+.button {
+  height: 60px;
+
+  border-radius: 999px;
+
+  background: #111;
+
+  color: white;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  margin-top: 10px;
+
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background: #c8a96b;
+
+  color: black;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 700px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .box {
+    padding: 30px 24px;
+  }
+
+  .heading h1 {
+    font-size: 38px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+

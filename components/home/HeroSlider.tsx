@@ -11,29 +11,25 @@ import {
 
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const slides = [
   {
     id: 1,
-    image:
-      "./shree_ram_offer_desktop_1.png",
-    link: "/eyeglasses",
+    image: "/ultra_premium_banner_1.png",
+    link: "/products",
   },
 
   {
     id: 2,
-    image:
-      "./shree_ram_offer_desktop_2.png",
-
-    link: "/sunglasses",
+    image: "/ultra_premium_banner_2.png",
+    link: "/product/rayban-black-frame",
   },
 
   {
     id: 3,
-    image:
-      "./shree_ram_offer_desktop_3.png",
-
-    link: "/offers",
+    image: "/ultra_premium_banner_3.png",
+    link: "/products",
   },
 ];
 
@@ -60,9 +56,12 @@ export default function HeroSlider() {
               className={styles.bannerLink}
             >
               <div className={styles.imageWrapper}>
-                <img
+                <Image
                   src={slide.image}
                   alt="Banner"
+                  fill
+                  className={styles.bannerImage}
+                  priority
                 />
               </div>
             </a>

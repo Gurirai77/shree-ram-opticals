@@ -26,7 +26,6 @@ export default function Home() {
 
 
       <Topbar />
-      <Navbar />
       <HeroSlider />
       <CategorySection />
       <TrendingCollections />
@@ -35,7 +34,6 @@ export default function Home() {
       <WhyChooseUs />
       <OurJourney />
       <Testimonials />
-      <Footer />
       {/* <Categories />
       <BestSellers />
       <BrandSection />

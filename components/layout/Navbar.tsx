@@ -9,8 +9,13 @@ import {
   X,
   ShoppingBag,
 } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+
 
 export default function Navbar() {
+
+  const { totalItems } = useCart();
+  const { addToCart } = useCart();
   const [open, setOpen] = useState(false);
 
   return (
@@ -52,21 +57,23 @@ export default function Navbar() {
 
         {/* Right Icons */}
         <div className={styles.icons}>
-          <button className={styles.cartButton}>
+          <a
+            href="/cart"
+            className={styles.cartButton}
+          >
             <ShoppingBag size={22} />
 
             <span className={styles.cartCount}>
-              0
+              {totalItems}
             </span>
-          </button>
+          </a>
         </div>
       </div>
 
       {/* Mobile Dropdown */}
       <div
-        className={`${styles.mobileNav} ${
-          open ? styles.showMenu : ""
-        }`}
+        className={`${styles.mobileNav} ${open ? styles.showMenu : ""
+          }`}
       >
         <a href="#">Eyeglasses</a>
         <a href="#">Sunglasses</a>
