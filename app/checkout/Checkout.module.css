@@ -1,11 +1,16 @@
 .section {
   padding: 90px 0;
 
-  background: #f8f6f2;
+  background:
+    linear-gradient(
+      to bottom,
+      #f8f6f2,
+      #f3efe7
+    );
 }
 
 .container {
-  max-width: 760px;
+  max-width: 860px;
 
   margin: auto;
 
@@ -15,14 +20,18 @@
 /* ---------- BOX ---------- */
 
 .box {
-  background: white;
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(0,0,0,0.05);
 
   border-radius: 36px;
 
   padding: 50px;
 
   box-shadow:
-    0 12px 34px rgba(0,0,0,0.05);
+    0 20px 60px rgba(0,0,0,0.06);
 }
 
 /* ---------- HEADING ---------- */
@@ -38,15 +47,19 @@
 
   font-size: 12px;
 
-  margin-bottom: 16px;
+  font-weight: 700;
+
+  margin-bottom: 14px;
 }
 
 .heading h1 {
-  font-size: 54px;
+  font-size: 52px;
 
   color: #111;
 
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+
+  line-height: 1.1;
 }
 
 .heading span {
@@ -55,6 +68,88 @@
   line-height: 1.8;
 
   font-size: 15px;
+}
+
+/* ---------- PRODUCTS ---------- */
+
+.products {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-bottom: 34px;
+}
+
+.product {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  background: #fafafa;
+
+  border: 1px solid #ececec;
+
+  border-radius: 22px;
+
+  padding: 16px;
+}
+
+.product img {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 18px;
+
+  object-fit: cover;
+}
+
+.product h3 {
+  font-size: 18px;
+
+  color: #111;
+
+  margin-bottom: 8px;
+}
+
+.product p {
+  color: #777;
+
+  font-size: 15px;
+}
+
+/* ---------- TOTAL ---------- */
+
+.totalBox {
+  background: #111;
+
+  color: white;
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  margin-bottom: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalBox span {
+  color: rgba(255,255,255,0.7);
+
+  font-size: 14px;
+}
+
+.totalBox h2 {
+  font-size: 34px;
+
+  color: #c8a96b;
 }
 
 /* ---------- FORM ---------- */
@@ -83,30 +178,46 @@
   font-weight: 600;
 }
 
+/* ---------- INPUTS ---------- */
+
 .inputGroup input,
-.inputGroup textarea {
+.inputGroup textarea,
+.inputGroup select {
   width: 100%;
 
   border: 1px solid #ddd;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
-  padding: 18px;
+  padding: 18px 20px;
 
   font-size: 15px;
 
   outline: none;
 
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 
-  background: #fafafa;
+  background: white;
+
+  color: #111;
+
+  font-family: inherit;
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: #999;
 }
 
 .inputGroup input:focus,
-.inputGroup textarea:focus {
+.inputGroup textarea:focus,
+.inputGroup select:focus {
   border-color: #c8a96b;
 
-  background: white;
+  box-shadow:
+    0 0 0 4px rgba(200,169,107,0.12);
+
+  background: #fff;
 }
 
 .inputGroup textarea {
@@ -115,10 +226,27 @@
   resize: none;
 }
 
+/* ---------- PREMIUM SELECT ---------- */
+
+.inputGroup select {
+  appearance: none;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      to right,
+      #fff,
+      #faf8f4
+    );
+
+  font-weight: 500;
+}
+
 /* ---------- BUTTON ---------- */
 
 .button {
-  height: 60px;
+  height: 62px;
 
   border-radius: 999px;
 
@@ -137,34 +265,69 @@
 
   font-weight: 600;
 
-  margin-top: 10px;
+  margin-top: 12px;
 
-  transition: 0.3s ease;
+  transition: all 0.35s ease;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08);
 }
 
 .button:hover {
   background: #c8a96b;
 
   color: black;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 28px rgba(200,169,107,0.28);
 }
 
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 700px) {
+
   .section {
     padding: 60px 0;
   }
 
+  .container {
+    padding: 0 14px;
+  }
+
   .box {
-    padding: 30px 24px;
+    padding: 30px 20px;
+
+    border-radius: 26px;
   }
 
   .heading h1 {
-    font-size: 38px;
+    font-size: 36px;
+  }
+
+  .product {
+    align-items: flex-start;
+  }
+
+  .product img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .totalBox {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .totalBox h2 {
+    font-size: 28px;
   }
 
   .button {
     width: 100%;
   }
 }
-

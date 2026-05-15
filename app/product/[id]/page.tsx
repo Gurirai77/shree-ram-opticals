@@ -5,10 +5,13 @@ import styles from "./ProductDetails.module.css";
 import { useCart } from "@/context/CartContext";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function ProductDetailsPage() {
 
     const params = useParams();
+
+    const router = useRouter();
 
     const { addToCart } = useCart();
 
@@ -60,12 +63,16 @@ export default function ProductDetailsPage() {
                                 Add To Cart
                             </button>
 
-                            <Link
-                                href="/checkout"
-                                className={styles.buyBtn}
-                            >
-                                Order Now
-                            </Link>
+<button
+  className={styles.buyBtn}
+  onClick={() => {
+    addToCart(product);
+
+    router.push("/checkout");
+  }}
+>
+  Order Now
+</button>
                         </div>
                     </div>
                 </div>

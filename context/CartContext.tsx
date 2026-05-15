@@ -3,6 +3,7 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -10,6 +11,8 @@ type Product = {
   id: string;
 
   name: string;
+
+  category: string;
 
   price: number;
 
@@ -36,11 +39,39 @@ export function CartProvider({
 }: {
   children: React.ReactNode;
 }) {
+
   const [cartItems, setCartItems] =
     useState<Product[]>([]);
 
+  // LOAD FROM STORAGE
+  useEffect(() => {
+
+    const storedCart =
+      localStorage.getItem("cart");
+
+    if (storedCart) {
+      setCartItems(
+        JSON.parse(storedCart)
+      );
+    }
+
+  }, []);
+
+  // SAVE TO STORAGE
+  useEffect(() => {
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cartItems)
+    );
+
+  }, [cartItems]);
+
   // ADD TO CART
-  const addToCart = (product: Product) => {
+  const addToCart = (
+    product: Product
+  ) => {
+
     setCartItems((prev) => [
       ...prev,
       product,
@@ -48,7 +79,10 @@ export function CartProvider({
   };
 
   // REMOVE
-  const removeFromCart = (id: string) => {
+  const removeFromCart = (
+    id: string
+  ) => {
+
     setCartItems((prev) =>
       prev.filter(
         (item) => item.id !== id
@@ -65,7 +99,8 @@ export function CartProvider({
 
         removeFromCart,
 
-        totalItems: cartItems.length,
+        totalItems:
+          cartItems.length,
       }}
     >
       {children}
@@ -75,6 +110,7 @@ export function CartProvider({
 
 // HOOK
 export const useCart = () => {
+
   const context =
     useContext(CartContext);
 

@@ -1,11 +1,25 @@
+"use client";
+
 import Link from "next/link";
 
 import styles from "./Cart.module.css";
 
+import { useCart } from "@/context/CartContext";
+
 export default function CartPage() {
+
+  const { cartItems } = useCart();
+
+  // TOTAL
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price,
+    0
+  );
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
+
         {/* Heading */}
         <div className={styles.heading}>
           <p>SHOPPING CART</p>
@@ -13,41 +27,66 @@ export default function CartPage() {
           <h1>Your Luxury Cart</h1>
         </div>
 
-        {/* Cart Card */}
-        <div className={styles.card}>
-          <div className={styles.left}>
-            <img
-              src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop"
-              alt="Product"
-            />
+        {/* EMPTY */}
+        {cartItems.length === 0 && (
+          <div className={styles.empty}>
+            <h2>
+              Your cart is empty
+            </h2>
 
-            <div className={styles.content}>
-              <p>Premium Eyeglasses</p>
+            <Link href="/products">
+              Continue Shopping
+            </Link>
+          </div>
+        )}
 
-              <h3>Rayban Black Frame</h3>
+        {/* PRODUCTS */}
+        {cartItems.map((item) => (
+          <div
+            key={item.id}
+            className={styles.card}
+          >
+            <div className={styles.left}>
+              <img
+                src={item.image}
+                alt={item.name}
+              />
 
-              <span>
-                Luxury handcrafted frame with
-                premium finish.
-              </span>
+              <div className={styles.content}>
+                <p>{item.category}</p>
+
+                <h3>{item.name}</h3>
+
+                <span>
+                  Premium handcrafted
+                  luxury eyewear with
+                  elegant modern styling.
+                </span>
+              </div>
             </div>
+
+            <h2>
+              ₹ {item.price}
+            </h2>
           </div>
+        ))}
 
-          <h2>₹ 4999</h2>
-        </div>
+        {/* TOTAL */}
+        {cartItems.length > 0 && (
+          <div className={styles.bottom}>
+            <div>
+              <p>Total Amount</p>
 
-        {/* Bottom */}
-        <div className={styles.bottom}>
-          <div>
-            <p>Total Amount</p>
+              <h3>
+                ₹ {totalPrice}
+              </h3>
+            </div>
 
-            <h3>₹ 4999</h3>
+            <Link href="/checkout">
+              Proceed to Checkout
+            </Link>
           </div>
-
-          <Link href="/checkout">
-            Proceed to Checkout
-          </Link>
-        </div>
+        )}
       </div>
     </section>
   );
