@@ -11,24 +11,35 @@ import {
 
 import "swiper/css";
 import "swiper/css/pagination";
+
 import Image from "next/image";
 
 const slides = [
   {
     id: 1,
-    image: "/ultra_premium_banner_1.png",
+    desktopImage:
+      "/hero_banner_final_1 (1).png",
+    mobileImage:
+      "/ultra_premium_banner_1.png",
     link: "/products",
   },
 
   {
     id: 2,
-    image: "/ultra_premium_banner_2.png",
-    link: "/product/rayban-black-frame",
+    desktopImage:
+      "/hero_banner_2026_2.png",
+    mobileImage:
+      "/ultra_premium_banner_2.png",
+    link:
+      "/product/rayban-black-frame",
   },
 
   {
     id: 3,
-    image: "/ultra_premium_banner_3.png",
+    desktopImage:
+      "/hero_banner_final_2.png",
+    mobileImage:
+      "/ultra_premium_banner_3.png",
     link: "/products",
   },
 ];
@@ -46,7 +57,9 @@ export default function HeroSlider() {
           disableOnInteraction: false,
         }}
         loop={true}
-        pagination={{ clickable: true }}
+        pagination={{
+          clickable: true,
+        }}
         className={styles.swiper}
       >
         {slides.map((slide) => (
@@ -55,13 +68,31 @@ export default function HeroSlider() {
               href={slide.link}
               className={styles.bannerLink}
             >
-              <div className={styles.imageWrapper}>
+              <div
+                className={
+                  styles.imageWrapper
+                }
+              >
+                {/* Desktop Image */}
                 <Image
-                  src={slide.image}
+                  src={
+                    slide.desktopImage
+                  }
                   alt="Banner"
                   fill
-                  className={styles.bannerImage}
                   priority
+                  className={`${styles.bannerImage} ${styles.desktopImage}`}
+                />
+
+                {/* Mobile Image */}
+                <Image
+                  src={
+                    slide.mobileImage
+                  }
+                  alt="Banner"
+                  fill
+                  priority
+                  className={`${styles.bannerImage} ${styles.mobileImage}`}
                 />
               </div>
             </a>

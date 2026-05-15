@@ -41,14 +41,26 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className={styles.navLinks}>
-          <a href="#">Eyeglasses</a>
-          <a href="#">Sunglasses</a>
-          <a href="#">Contact Lenses</a>
-          <a href="#">Brands</a>
-          <a href="#">Accessories</a>
+          <a href="/eyeglasses">
+            Eyeglasses
+          </a>
+
+          <a href="/sunglasses">
+            Sunglasses
+          </a>
+
+          <a href="/contact-lenses">
+            Contact Lenses
+          </a>
+
+          <a href="/brands">Brands</a>
+
+          <a href="/accessories">
+            Accessories
+          </a>
 
           <a
-            href="#"
+            href="/offers"
             className={styles.offerLink}
           >
             Offers
@@ -59,7 +71,8 @@ export default function Navbar() {
         <div className={styles.icons}>
           <a
             href="/cart"
-            className={styles.cartButton}
+            className={`${styles.cartButton} ${totalItems > 0 ? styles.activeCart : ""
+              }`}
           >
             <ShoppingBag size={22} />
 
@@ -75,14 +88,26 @@ export default function Navbar() {
         className={`${styles.mobileNav} ${open ? styles.showMenu : ""
           }`}
       >
-        <a href="#">Eyeglasses</a>
-        <a href="#">Sunglasses</a>
-        <a href="#">Contact Lenses</a>
-        <a href="#">Brands</a>
-        <a href="#">Accessories</a>
+        <a href="/eyeglasses">
+          Eyeglasses
+        </a>
+
+        <a href="/sunglasses">
+          Sunglasses
+        </a>
+
+        <a href="/contact-lenses">
+          Contact Lenses
+        </a>
+
+        <a href="/brands">Brands</a>
+
+        <a href="/accessories">
+          Accessories
+        </a>
 
         <a
-          href="#"
+          href="/offers"
           className={styles.offerLink}
         >
           Offers

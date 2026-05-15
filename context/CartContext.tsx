@@ -17,14 +17,18 @@ type Product = {
   price: number;
 
   image: string;
+
+  quantity: number;
 };
 
 type CartContextType = {
   cartItems: Product[];
 
-  addToCart: (product: Product) => void;
+  addToCart: (
+  product: Omit<Product, "quantity">
+) => void;
 
-  removeFromCart: (id: string) => void;
+  removeFromCart: (index: number) => void;
 
   totalItems: number;
 };
@@ -68,27 +72,54 @@ export function CartProvider({
   }, [cartItems]);
 
   // ADD TO CART
-  const addToCart = (
-    product: Product
-  ) => {
+const addToCart = (
+  product: Omit<Product, "quantity">
+) => {
 
-    setCartItems((prev) => [
+  setCartItems((prev) => {
+
+    const existing =
+      prev.find(
+        (item) =>
+          item.id === product.id
+      );
+
+    // IF EXISTS
+    if (existing) {
+
+      return prev.map((item) =>
+        item.id === product.id
+          ? {
+              ...item,
+              quantity:
+                item.quantity + 1,
+            }
+          : item
+      );
+    }
+
+    // NEW PRODUCT
+    return [
       ...prev,
-      product,
-    ]);
-  };
+      {
+        ...product,
+        quantity: 1,
+      },
+    ];
+  });
+};
 
   // REMOVE
-  const removeFromCart = (
-    id: string
-  ) => {
+const removeFromCart = (
+  index: number
+) => {
 
-    setCartItems((prev) =>
-      prev.filter(
-        (item) => item.id !== id
-      )
-    );
-  };
+  setCartItems((prev) =>
+    prev.filter(
+      (_, i) => i !== index
+    )
+  );
+};
 
   return (
     <CartContext.Provider

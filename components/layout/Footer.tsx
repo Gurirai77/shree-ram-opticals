@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Footer.module.css";
 
 import {
@@ -177,9 +178,17 @@ export default function Footer() {
                     </div>
 
                     {/* Right */}
-                    <button className={styles.topBtn}>
-                        <ArrowUp size={18} />
-                    </button>
+                   <button
+  className={styles.topBtn}
+  onClick={() =>
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+>
+  <ArrowUp size={18} />
+</button>
                 </div>
             </div>
         </footer>

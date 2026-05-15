@@ -6,10 +6,15 @@ import { useCart } from "@/context/CartContext";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Check } from "lucide-react";
+import { useState } from "react";
 
 export default function ProductDetailsPage() {
 
     const params = useParams();
+
+    const [showModal, setShowModal] =
+        useState(false);
 
     const router = useRouter();
 
@@ -27,6 +32,10 @@ export default function ProductDetailsPage() {
 
     const whatsappMessage =
         `I want to order ${product.name}`;
+
+    const categoryPath = `/${product.category.toLowerCase()}`;
+
+    // const categoryPath = "/products";
 
     return (
         <section className={styles.section}>
@@ -58,24 +67,75 @@ export default function ProductDetailsPage() {
                         <div className={styles.buttons}>
                             <button
                                 className={styles.cartBtn}
-                                onClick={() => addToCart(product)}
+                                onClick={() => {
+
+                                    addToCart(product);
+
+                                    setShowModal(true);
+                                }}
                             >
                                 Add To Cart
                             </button>
 
-<button
-  className={styles.buyBtn}
-  onClick={() => {
-    addToCart(product);
+                            <button
+                                className={styles.buyBtn}
+                                onClick={() => {
 
-    router.push("/checkout");
-  }}
->
-  Order Now
-</button>
+                                    setShowModal(false);
+
+                                    router.push(categoryPath);
+                                }}
+                            >
+                                Order Now
+                            </button>
                         </div>
                     </div>
                 </div>
+                {showModal && (
+                    <div className={styles.modalOverlay}>
+
+                        <div className={styles.modal}>
+
+                            <div className={styles.checkIcon}>
+                                <Check size={34} />
+                            </div>
+
+                            <h3>
+                                Product Added
+                            </h3>
+
+                            <p>
+                                Your premium eyewear has
+                                been added to cart.
+                            </p>
+
+                            <div className={styles.modalButtons}>
+
+                                <button
+                                    onClick={() => {
+
+                                        setShowModal(false);
+
+                                        router.push(categoryPath);
+                                    }}
+                                    className={styles.continueBtn}
+                                >
+                                    Continue Shopping
+                                </button>
+
+                                <button
+                                    onClick={() =>
+                                        router.push("/cart")
+                                    }
+                                    className={styles.checkoutBtn}
+                                >
+                                    Go To Cart
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );

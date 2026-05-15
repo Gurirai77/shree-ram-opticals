@@ -25,7 +25,6 @@ export default function Home() {
     {/* <CustomCursor /> */}
 
 
-      <Topbar />
       <HeroSlider />
       <CategorySection />
       <TrendingCollections />
