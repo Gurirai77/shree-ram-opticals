@@ -105,7 +105,7 @@ export default function Testimonials() {
           <div className={styles.leftSide}>
             <div className={styles.imageWrapper}>
               <img
-                src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop"
+                src="/revis.jpeg"
                 alt="Luxury"
               />
 

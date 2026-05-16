@@ -51,9 +51,23 @@ Qty: ${item.quantity}
     )
     .join("\n");
 
+    const isFormValid =
+
+  name.trim() !== "" &&
+
+  phone.trim() !== "" &&
+
+  address.trim() !== "" &&
+
+  payment.trim() !== "";
+
   // WHATSAPP MESSAGE
   const whatsappMessage =
+
+  
     `
+
+  
 ✨ NEW ORDER
 
 👤 Name: ${name}
@@ -282,19 +296,45 @@ ${productsText}
               </div>
 
               {/* WHATSAPP BUTTON */}
-              <a
-                href={`https://wa.me/917206881771?text=${encodeURIComponent(
-                  whatsappMessage
-                )}`}
-                target="_blank"
-                className={styles.button}
-              >
+              <button
+  type="button"
+  disabled={!isFormValid}
+  className={styles.button}
+  onClick={() => {
 
-                <MessageCircle size={20} />
+    window.open(
+      `https://wa.me/917206881771?text=${encodeURIComponent(
+        whatsappMessage
+      )}`,
+      "_blank"
+    );
 
-                Confirm Order On WhatsApp
+    // CLEAR INPUTS
+    setName("");
 
-              </a>
+    setPhone("");
+
+    setAddress("");
+
+    setPayment(
+      "Cash On Delivery"
+    );
+
+    // SUCCESS TOAST
+    setShowSuccess(true);
+
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+
+  }}
+>
+
+  <MessageCircle size={20} />
+
+  Confirm Order On WhatsApp
+
+</button>
 
               {/* SECOND BUTTON */}
               <button
