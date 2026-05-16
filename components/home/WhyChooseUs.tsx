@@ -1,74 +1,165 @@
-import React from 'react';
-import styles from './WhyChooseUs.module.css';
+"use client";
+
+import React from "react";
+
+import Image from "next/image";
+
+import styles from "./WhyChooseUs.module.css";
 
 const WhyChooseUs: React.FC = () => {
+
   const cards = [
     {
       id: 1,
-      title: "100% Authentic Products",
-      desc: "We guarantee original branded eyewear with official packaging.",
-      texture: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=500&auto=format&fit=crop", // White Marble
-      icon: "🏆"
+
+      title:
+        "100% Authentic Products",
+
+      desc:
+        "We guarantee original branded eyewear with official packaging.",
+
+      texture:
+        "/authentic_products.png",
+
+      icon: "🏆",
     },
+
     {
       id: 2,
+
       title: "Free Shipping",
-      desc: "Enjoy free shipping on all orders across India with secure delivery.",
-      texture: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=500&auto=format&fit=crop", // Green Malachite/Texture
-      icon: "🚚"
+
+      desc:
+        "Enjoy free shipping on all orders across India with secure delivery.",
+
+      texture:
+        "/free_shipping.png",
+
+      icon: "🚚",
     },
+
     {
       id: 3,
+
       title: "1 Year Warranty",
-      desc: "All our products come with 1 year warranty for added peace of mind.",
-      texture: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?q=80&w=500&auto=format&fit=crop", // Dark Stone/Marble
-      icon: "🛡️"
+
+      desc:
+        "All our products come with 1 year warranty for added peace of mind.",
+
+      texture:
+        "/warranty_peace.png",
+
+      icon: "🛡️",
     },
+
     {
       id: 4,
+
       title: "Easy Returns",
-      desc: "Hassle-free returns within 7 days if you're not satisfied.",
-      texture: "https://images.unsplash.com/photo-1516550135131-fe3dcb0bedc7?q=80&w=500&auto=format&fit=crop", // Light Travertine
-      icon: "🔄"
-    }
+
+      desc:
+        "Hassle-free returns within 7 days if you're not satisfied.",
+
+      texture:
+        "/easy_returns.png",
+
+      icon: "🔄",
+    },
   ];
 
   return (
     <section className={styles.section}>
+
       <div className={styles.container}>
-        {/* Left Side: Main Feature Image */}
+
+        {/* LEFT SIDE */}
         <div className={styles.imageBlock}>
+
           <div className={styles.mainImgWrapper}>
-            <img 
-              src="https://images.unsplash.com/photo-1614713568397-b31b779d0498?q=80&w=800&auto=format&fit=crop" 
-              alt="Premium Model" 
+
+            <Image
+              src="/shree-ram-opticals-begu-road-sirsa.webp"
+              alt="Premium Model"
+              fill
               className={styles.mainImg}
             />
+
             <div className={styles.imageOverlay}>
-              <span>OUR PROMISE</span>
-              <h2>Style You Trust, <br/> Service You Deserve.</h2>
+
+              <span>
+                OUR PROMISE
+              </span>
+
+              <h2>
+                Style You Trust,
+                <br />
+                Service You Deserve.
+              </h2>
+
               <div className={styles.goldLine}></div>
-              <p>From authentic eyewear to exceptional service, we ensure a premium experience.</p>
+
+              <p>
+                From authentic eyewear to
+                exceptional service, we ensure
+                a premium experience.
+              </p>
+
             </div>
           </div>
         </div>
 
-        {/* Right Side: Header & Grid */}
+        {/* RIGHT SIDE */}
         <div className={styles.contentBlock}>
+
           <div className={styles.header}>
-            <span className={styles.upperTitle}>Why Choose Us</span>
-            <h2 className={styles.mainTitle}>Why Customers Love Us</h2>
-            <p className={styles.subTitle}>Premium craftsmanship with trusted service.</p>
+
+            <span className={styles.upperTitle}>
+              Why Choose Us
+            </span>
+
+            <h2 className={styles.mainTitle}>
+              Why Customers Love Us
+            </h2>
+
+            <p className={styles.subTitle}>
+              Premium craftsmanship with trusted service.
+            </p>
+
           </div>
 
+          {/* GRID */}
           <div className={styles.grid}>
+
             {cards.map((card) => (
-              <div key={card.id} className={styles.card} style={{ backgroundImage: `url(${card.texture})` }}>
+
+              <div
+                key={card.id}
+                className={styles.card}
+              >
+
+                <Image
+                  src={card.texture}
+                  alt={card.title}
+                  fill
+                  className={styles.cardBg}
+                />
+
                 <div className={styles.cardOverlay}></div>
+
                 <div className={styles.cardContent}>
-                  <div className={styles.iconBox}>{card.icon}</div>
-                  <h3>{card.title}</h3>
-                  <p>{card.desc}</p>
+
+                  <div className={styles.iconBox}>
+                    {card.icon}
+                  </div>
+
+                  <h3>
+                    {card.title}
+                  </h3>
+
+                  <p>
+                    {card.desc}
+                  </p>
+
                 </div>
               </div>
             ))}

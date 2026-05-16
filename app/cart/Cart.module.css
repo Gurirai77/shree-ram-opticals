@@ -368,3 +368,51 @@
     width: 100%;
   }
 }
+
+
+
+
+.quantityBox {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.quantityBox button {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  border: 1px solid #e7e7e7;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: 0.3s ease;
+}
+
+.quantityBox button:hover {
+  background: #111;
+
+  color: white;
+
+  border-color: #111;
+}
+
+.quantityBox span {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  min-width: 20px;
+
+  text-align: center;
+}

@@ -8,10 +8,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+
 
 export default function ProductDetailsPage() {
 
     const params = useParams();
+
+    const [selectedImage, setSelectedImage] =
+        useState(0);
 
     const [showModal, setShowModal] =
         useState(false);
@@ -42,11 +47,50 @@ export default function ProductDetailsPage() {
             <div className={styles.container}>
                 <div className={styles.grid}>
                     {/* Image */}
-                    <div className={styles.imageWrapper}>
-                        <img
-                            src={product.image}
-                            alt={product.name}
-                        />
+                    <div className={styles.imageSection}>
+
+                        {/* MAIN IMAGE */}
+
+                        <div className={styles.imageWrapper}>
+
+                            <Image
+                                src={product.images[selectedImage]}
+                                alt={product.name}
+                                fill
+                                className={styles.mainImage}
+                            />
+
+                        </div>
+
+                        {/* THUMBNAILS */}
+
+                        <div className={styles.thumbnailRow}>
+
+                            {product.images.map(
+                                (img, index) => (
+
+                                    <button
+                                        key={index}
+                                        className={`${styles.thumbBtn}
+                ${selectedImage === index
+                                                ? styles.activeThumb
+                                                : ""
+                                            }`}
+                                        onClick={() =>
+                                            setSelectedImage(index)
+                                        }
+                                    >
+
+                                        <Image
+                                            src={img}
+                                            alt={product.name}
+                                            fill
+                                            className={styles.thumbImage}
+                                        />
+
+                                    </button>
+                                ))}
+                        </div>
                     </div>
 
                     {/* Content */}
@@ -58,10 +102,7 @@ export default function ProductDetailsPage() {
                         <h2>₹ {product.price}</h2>
 
                         <span>
-                            Premium handcrafted luxury eyewear
-                            designed for modern comfort,
-                            timeless elegance and crystal
-                            clear vision.
+                            {product.description}
                         </span>
 
                         <div className={styles.buttons}>
@@ -81,9 +122,9 @@ export default function ProductDetailsPage() {
                                 className={styles.buyBtn}
                                 onClick={() => {
 
-                                    setShowModal(false);
+                                    addToCart(product);
 
-                                    router.push(categoryPath);
+                                    router.push("/cart");
                                 }}
                             >
                                 Order Now

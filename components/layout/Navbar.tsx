@@ -41,6 +41,10 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className={styles.navLinks}>
+          <a href="/">
+            Home
+          </a>
+
           <a href="/eyeglasses">
             Eyeglasses
           </a>
@@ -54,10 +58,6 @@ export default function Navbar() {
           </a>
 
           <a href="/brands">Brands</a>
-
-          <a href="/accessories">
-            Accessories
-          </a>
 
           <a
             href="/offers"
@@ -88,7 +88,11 @@ export default function Navbar() {
         className={`${styles.mobileNav} ${open ? styles.showMenu : ""
           }`}
       >
-        <a href="/eyeglasses">
+        <a href="/">
+          Home
+        </a>
+
+         <a href="/eyeglasses">
           Eyeglasses
         </a>
 
@@ -101,10 +105,6 @@ export default function Navbar() {
         </a>
 
         <a href="/brands">Brands</a>
-
-        <a href="/accessories">
-          Accessories
-        </a>
 
         <a
           href="/offers"

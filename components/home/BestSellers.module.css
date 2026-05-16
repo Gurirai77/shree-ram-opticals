@@ -389,3 +389,36 @@
     font-size: 32px;
   }
 }
+
+
+
+.viewBtn {
+  height: 56px;
+
+  padding: 0 26px;
+
+  border-radius: 999px;
+
+  background: #111;
+
+  color: white;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.viewBtn:hover {
+  background: #c8a96b;
+
+  color: black;
+}

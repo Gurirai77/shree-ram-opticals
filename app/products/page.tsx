@@ -4,6 +4,8 @@ import { products } from "@/data/products";
 
 import styles from "./Products.module.css";
 
+import Image from "next/image";
+
 const collections = [
   {
     title: "Eyeglasses",
@@ -154,36 +156,40 @@ export default function ProductsPage() {
           {featuredProducts.map(
             (product) => (
 
-            <Link
-              key={product.id}
-              href={`/product/${product.id}`}
-              className={styles.card}
-            >
+              <Link
+                key={product.id}
+                href={`/product/${product.id}`}
+                className={styles.card}
+              >
 
-              <div className={styles.imageWrapper}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                />
-              </div>
+                <div className={styles.imageWrapper}>
 
-              <div className={styles.content}>
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    fill
+                    className={styles.productImage}
+                  />
 
-                <p>
-                  {product.category}
-                </p>
+                </div>
 
-                <h3>
-                  {product.name}
-                </h3>
+                <div className={styles.content}>
 
-                <span>
-                  ₹ {product.price}
-                </span>
+                  <p>
+                    {product.category}
+                  </p>
 
-              </div>
-            </Link>
-          ))}
+                  <h3>
+                    {product.name}
+                  </h3>
+
+                  <span>
+                    ₹ {product.price}
+                  </span>
+
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
     </section>

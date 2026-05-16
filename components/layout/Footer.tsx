@@ -105,11 +105,11 @@ export default function Footer() {
                     <div className={styles.links}>
                         <h4>QUICK LINKS</h4>
 
-                        <a href="#">Home</a>
-                        <a href="#">Eyeglasses</a>
-                        <a href="#">Sunglasses</a>
-                        <a href="#">Brands</a>
-                        <a href="#">Contact Us</a>
+                        <a href="/">Home</a>
+                        <a href="/eyeglasses">Eyeglasses</a>
+                        <a href="/sunglasses">Sunglasses</a>
+                        <a href="/brands">Brands</a>
+                        <a href="/contact">Contact Us</a>
                     </div>
 
                     {/* Support */}
@@ -140,7 +140,7 @@ export default function Footer() {
                         <div>
                             <MapPin size={18} />
                             <span>
-                                Panipat, Haryana,
+                                Sirsa, Haryana,
                                 India
                             </span>
                         </div>
@@ -178,17 +178,17 @@ export default function Footer() {
                     </div>
 
                     {/* Right */}
-                   <button
-  className={styles.topBtn}
-  onClick={() =>
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
->
-  <ArrowUp size={18} />
-</button>
+                    <button
+                        className={styles.topBtn}
+                        onClick={() =>
+                            window.scrollTo({
+                                top: 0,
+                                behavior: "smooth",
+                            })
+                        }
+                    >
+                        <ArrowUp size={18} />
+                    </button>
                 </div>
             </div>
         </footer>

@@ -16,7 +16,9 @@ type Product = {
 
   price: number;
 
-  image: string;
+  images: string[];
+
+  description: string;
 
   quantity: number;
 };
@@ -25,12 +27,22 @@ type CartContextType = {
   cartItems: Product[];
 
   addToCart: (
-  product: Omit<Product, "quantity">
-) => void;
+    product: Omit<Product, "quantity">
+  ) => void;
 
   removeFromCart: (index: number) => void;
 
+  increaseQuantity: (
+    id: string
+  ) => void;
+
+  decreaseQuantity: (
+    id: string
+  ) => void;
+
   totalItems: number;
+
+
 };
 
 const CartContext =
@@ -72,54 +84,93 @@ export function CartProvider({
   }, [cartItems]);
 
   // ADD TO CART
-const addToCart = (
-  product: Omit<Product, "quantity">
-) => {
+  const addToCart = (
+    product: Omit<Product, "quantity">
+  ) => {
 
-  setCartItems((prev) => {
+    setCartItems((prev) => {
 
-    const existing =
-      prev.find(
-        (item) =>
+      const existing =
+        prev.find(
+          (item) =>
+            item.id === product.id
+        );
+
+      // IF EXISTS
+      if (existing) {
+
+        return prev.map((item) =>
           item.id === product.id
-      );
-
-    // IF EXISTS
-    if (existing) {
-
-      return prev.map((item) =>
-        item.id === product.id
-          ? {
+            ? {
               ...item,
               quantity:
                 item.quantity + 1,
             }
-          : item
-      );
-    }
+            : item
+        );
+      }
 
-    // NEW PRODUCT
-    return [
-      ...prev,
-      {
-        ...product,
-        quantity: 1,
-      },
-    ];
-  });
-};
+      // NEW PRODUCT
+      return [
+        ...prev,
+        {
+          ...product,
+          quantity: 1,
+        },
+      ];
+    });
+  };
 
   // REMOVE
-const removeFromCart = (
-  index: number
-) => {
+  const removeFromCart = (
+    index: number
+  ) => {
 
-  setCartItems((prev) =>
-    prev.filter(
-      (_, i) => i !== index
-    )
-  );
-};
+    setCartItems((prev) =>
+      prev.filter(
+        (_, i) => i !== index
+      )
+    );
+  };
+
+  const increaseQuantity = (
+    id: string
+  ) => {
+
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+            ...item,
+            quantity:
+              item.quantity + 1,
+          }
+          : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (
+    id: string
+  ) => {
+
+    setCartItems((prev) =>
+      prev
+        .map((item) =>
+          item.id === id
+            ? {
+              ...item,
+              quantity:
+                item.quantity - 1,
+            }
+            : item
+        )
+        .filter(
+          (item) =>
+            item.quantity > 0
+        )
+    );
+  };
 
   return (
     <CartContext.Provider
@@ -129,6 +180,10 @@ const removeFromCart = (
         addToCart,
 
         removeFromCart,
+
+        increaseQuantity,
+
+        decreaseQuantity,
 
         totalItems:
           cartItems.length,

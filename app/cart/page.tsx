@@ -12,6 +12,8 @@ export default function CartPage() {
     const {
         cartItems,
         removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
     } = useCart();
 
     // TOTAL
@@ -22,6 +24,8 @@ export default function CartPage() {
 
         0
     );
+
+
 
     return (
         <section className={styles.section}>
@@ -64,9 +68,29 @@ export default function CartPage() {
 
                                 <h3>{item.name}</h3>
 
-                                <h4>
-                                    Qty: {item.quantity}
-                                </h4>
+                                <div className={styles.quantityBox}>
+
+                                    <button
+                                        onClick={() =>
+                                            decreaseQuantity(item.id)
+                                        }
+                                    >
+                                        -
+                                    </button>
+
+                                    <span>
+                                       Qty: {item.quantity}
+                                    </span>
+
+                                    <button
+                                        onClick={() =>
+                                            increaseQuantity(item.id)
+                                        }
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
 
                                 <span>
                                     Premium handcrafted

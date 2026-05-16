@@ -24,7 +24,10 @@ export default function CheckoutPage() {
 
   // TOTAL
   const totalPrice = cartItems.reduce(
-    (acc, item) => acc + item.price,
+    (acc, item) =>
+      acc +
+      item.price * item.quantity,
+
     0
   );
 
@@ -32,7 +35,9 @@ export default function CheckoutPage() {
   const productsText = cartItems
     .map(
       (item) =>
-        `• ${item.name} - ₹${item.price}`
+        `• ${item.name}
+Qty: ${item.quantity}
+- ₹${item.price * item.quantity}`
     )
     .join("\n");
 
@@ -91,9 +96,15 @@ ${productsText}
                 <div>
                   <h3>{item.name}</h3>
 
+                  <span>
+                    Qty: {item.quantity}
+                  </span>
+
                   <p>
-                    ₹ {item.price}
+                    ₹ {item.price * item.quantity}
                   </p>
+
+
                 </div>
               </div>
             ))}
