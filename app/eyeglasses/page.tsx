@@ -3,6 +3,7 @@ import Link from "next/link";
 import { products } from "@/data/products";
 
 import styles from "./Eyeglasses.module.css";
+import Image from "next/image";
 
 export default function EyeglassesPage() {
 
@@ -60,11 +61,15 @@ export default function EyeglassesPage() {
             >
 
               <div className={styles.imageWrapper}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                />
-              </div>
+
+  <Image
+    src={product.images[0]}
+    alt={product.name}
+    fill
+    className={styles.productImage}
+  />
+
+</div>
 
               <div className={styles.content}>
 
