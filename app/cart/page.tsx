@@ -59,7 +59,7 @@ export default function CartPage() {
                     >
                         <div className={styles.left}>
                             <img
-                                src={item.image}
+                                src={item.images[0]}
                                 alt={item.name}
                             />
 
@@ -79,7 +79,7 @@ export default function CartPage() {
                                     </button>
 
                                     <span>
-                                       Qty: {item.quantity}
+                                        Qty: {item.quantity}
                                     </span>
 
                                     <button

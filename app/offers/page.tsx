@@ -122,44 +122,44 @@ export default function OffersPage() {
           {products.slice(0, 4).map(
             (product) => (
 
-            <Link
-              key={product.id}
-              href={`/product/${product.id}`}
-              className={styles.card}
-            >
+              <Link
+                key={product.id}
+                href={`/product/${product.id}`}
+                className={styles.card}
+              >
 
-              <div className={styles.imageWrapper}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                />
-              </div>
-
-              <div className={styles.content}>
-
-                <p>
-                  {product.category}
-                </p>
-
-                <h3>
-                  {product.name}
-                </h3>
-
-                <div className={styles.priceRow}>
-
-                  <span>
-                    ₹ {product.price}
-                  </span>
-
-                  <small>
-                    20% OFF
-                  </small>
-
+                <div className={styles.imageWrapper}>
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                  />
                 </div>
 
-              </div>
-            </Link>
-          ))}
+                <div className={styles.content}>
+
+                  <p>
+                    {product.category}
+                  </p>
+
+                  <h3>
+                    {product.name}
+                  </h3>
+
+                  <div className={styles.priceRow}>
+
+                    <span>
+                      ₹ {product.price}
+                    </span>
+
+                    <small>
+                      20% OFF
+                    </small>
+
+                  </div>
+
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
     </section>

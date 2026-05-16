@@ -61,7 +61,7 @@ export default function SunglassesPage() {
 
                                 <div className={styles.imageWrapper}>
                                     <img
-                                        src={product.image}
+                                        src={product.images[0]}
                                         alt={product.name}
                                     />
                                 </div>

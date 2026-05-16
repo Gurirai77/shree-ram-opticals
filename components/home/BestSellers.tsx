@@ -75,7 +75,7 @@ export default function BestSellers() {
                 <div className={styles.imageWrapper}>
 
                   <Image
-                    src={item.image}
+                    src={item.images[0]}
                     alt={item.name}
                     fill
                     className={styles.image}

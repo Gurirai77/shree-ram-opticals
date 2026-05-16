@@ -89,10 +89,9 @@ ${productsText}
                 className={styles.product}
               >
                 <img
-                  src={item.image}
+                  src={item.images[0]}
                   alt={item.name}
                 />
-
                 <div>
                   <h3>{item.name}</h3>
 
