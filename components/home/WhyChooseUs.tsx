@@ -78,7 +78,7 @@ const WhyChooseUs: React.FC = () => {
           <div className={styles.mainImgWrapper}>
 
             <Image
-              src="/shree-ram-opticals-begu-road-sirsa.webp"
+              src="/storefront_vertical.webp"
               alt="Premium Model"
               fill
               className={styles.mainImg}

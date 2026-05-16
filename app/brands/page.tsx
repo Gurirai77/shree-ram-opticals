@@ -12,7 +12,7 @@ const brands = [
 
     tag: "ICONIC STYLE",
 
-    image: "/brands/rayban.jpg",
+    image: "/brands/rayban.png",
   },
 
   {
@@ -22,7 +22,7 @@ const brands = [
 
     tag: "HIGH FASHION",
 
-    image: "/brands/gucci.jpg",
+    image: "/brands/gucci.png",
   },
 
   {
@@ -32,7 +32,7 @@ const brands = [
 
     tag: "MODERN ELEGANCE",
 
-    image: "/brands/prada.jpg",
+    image: "/brands/prada.png",
   },
 
   {
@@ -42,7 +42,7 @@ const brands = [
 
     tag: "LUXURY DESIGN",
 
-    image: "/brands/versace.jpg",
+    image: "/brands/versace.png",
   },
 
   {
@@ -52,7 +52,7 @@ const brands = [
 
     tag: "PREMIUM EYEWEAR",
 
-    image: "/brands/dior.jpg",
+    image: "/brands/dior.png",
   },
 
   {
@@ -62,7 +62,7 @@ const brands = [
 
     tag: "TIMELESS LUXURY",
 
-    image: "/brands/tomford.jpg",
+    image: "/brands/tomford.png",
   },
 ];
 

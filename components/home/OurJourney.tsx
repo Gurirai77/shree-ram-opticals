@@ -9,35 +9,35 @@ import {
 
 const timeline = [
   {
-    year: "1959",
-    title: "Founded in Panipat",
+    year: "1989",
+    title: "Founded in Sirsa",
     text: "Started with a vision to provide premium eyewear for every generation.",
     icon: <Store size={22} />,
   },
 
   {
-    year: "1986",
+    year: "2000",
     title: "Premium Lens Expansion",
     text: "Expanded our lens technology and introduced high-performance lenses.",
     icon: <Glasses size={22} />,
   },
 
   {
-    year: "2005",
+    year: "2010",
     title: "Luxury Collection Launch",
     text: "Introduced premium international eyewear collections.",
     icon: <Users size={22} />,
   },
 
   {
-    year: "2014",
+    year: "2018",
     title: "Multi Store Presence",
     text: "Expanded across multiple cities with luxury experience stores.",
     icon: <ShoppingCart size={22} />,
   },
 
   {
-    year: "2020",
+    year: "2026",
     title: "Modern Ecommerce Launch",
     text: "Launched digital shopping experience for customers nationwide.",
     icon: <Globe size={22} />,
@@ -65,7 +65,7 @@ export default function OurJourney() {
           {/* LEFT */}
           <div className={styles.leftCard}>
             <img
-              src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1400&auto=format&fit=crop"
+              src="/storefront_vertical.webp"
               alt="Journey"
             />
 
