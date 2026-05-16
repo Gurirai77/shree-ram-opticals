@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Topbar.module.css";
 
 export default function Topbar() {
@@ -13,8 +14,19 @@ export default function Topbar() {
         </p>
 
         <div className={styles.rightSection}>
-          <button>Online Order</button>
-          <button>Visit Store</button>
+          <Link href="/products">
+            <button>
+              Online Order
+            </button>
+          </Link>
+          <a
+  href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.visitBtn}
+>
+  Visit Store
+</a>
         </div>
       </div>
     </div>

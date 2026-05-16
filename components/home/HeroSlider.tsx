@@ -29,7 +29,7 @@ const slides = [
     desktopImage:
       "/ultra_premium_banner_1.png",
     mobileImage:
-      "/ultra_premium_banner_2.png",
+      "/ultra_premium_banner_2.jpg",
     link:
       "/product/rayban-black-frame",
   },
