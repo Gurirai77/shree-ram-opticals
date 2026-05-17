@@ -2,32 +2,37 @@
   background: #000;
   color: white;
   font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .container {
   max-width: 1280px;
   margin: auto;
   padding: 0 24px;
-  height: 40px;
+  min-height: 40px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .leftText {
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .centerText {
   font-weight: 500;
   letter-spacing: 1px;
+  text-align: center;
+  flex: 1;
 }
 
 .rightSection {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .rightSection button {
@@ -42,24 +47,90 @@
   color: #c8a96b;
 }
 
-@media (max-width: 768px) {
-  .topbar {
-    display: none;
-  }
-}
-
 .visitBtn {
   color: white;
-
   text-decoration: none;
-
   font-size: 15px;
-
   font-weight: 500;
-
   transition: 0.3s ease;
+  white-space: nowrap;
 }
 
 .visitBtn:hover {
   color: #c8a96b;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .topbar {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 10px 14px;
+    min-height: auto;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .leftText {
+    display: none; /* optional */
+  }
+
+  .centerText {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .rightSection {
+    gap: 14px;
+  }
+
+  .visitBtn {
+    font-size: 13px;
+  }
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .topbar {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 14px;
+    min-height: 38px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .leftText {
+    display: none;
+  }
+
+  .centerText {
+    flex: unset;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .rightSection {
+    gap: 12px;
+  }
+
+  .rightSection button,
+  .visitBtn {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }
