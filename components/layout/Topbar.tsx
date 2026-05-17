@@ -10,7 +10,9 @@ export default function Topbar() {
         </p>
 
         <p className={styles.centerText}>
-          Flat 25% OFF on Sunglasses
+          <Link href="/offers" className={styles.offerLink}>
+            Flat 25% OFF on Sunglasses
+          </Link>
         </p>
 
         <div className={styles.rightSection}>
@@ -20,13 +22,13 @@ export default function Topbar() {
             </button>
           </Link>
           <a
-  href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={styles.visitBtn}
->
-  Visit Store
-</a>
+            href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.visitBtn}
+          >
+            Visit Store
+          </a>
         </div>
       </div>
     </div>
