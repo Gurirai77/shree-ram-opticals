@@ -67,7 +67,8 @@ const categories = [
 export default function CategorySection() {
 
   return (
-    <section className={styles.section}>
+    <section id="COLLECTION" className={styles.section}>
+
 
       <div className={styles.container}>
 
@@ -95,13 +96,12 @@ export default function CategorySection() {
           {categories.map((item) => (
 
             <Link
-              href={item.link}
+              href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+              target="_blank"
+              rel="noopener noreferrer"
               key={item.id}
-              className={`${styles.card} ${
-                item.large
-                  ? styles.largeCard
-                  : ""
-              }`}
+              className={`${styles.card} ${item.large ? styles.largeCard : ""
+                }`}
             >
 
               <Image
@@ -124,7 +124,7 @@ export default function CategorySection() {
                 </h3>
 
                 <button>
-                  Explore Collection
+                  Visit Our Store
 
                   <span>→</span>
                 </button>

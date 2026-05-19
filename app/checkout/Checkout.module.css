@@ -633,3 +633,84 @@
 
   cursor: not-allowed;
 }
+
+
+
+.onlinePaymentBox {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-top: 10px;
+}
+
+.payNowBtn {
+  height: 60px;
+
+  border-radius: 999px;
+
+  background: #111;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08);
+}
+
+.payNowBtn:hover {
+  transform: translateY(-2px);
+
+  background: #c8a96b;
+
+  color: black;
+}
+
+.paymentDoneBtn {
+  height: 56px;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 999px;
+
+  background: white;
+
+  color: #111;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.paymentDoneBtn:hover {
+  border-color: #c8a96b;
+
+  background: rgba(200,169,107,0.08);
+}
+
+.secondaryBtn:disabled,
+.button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  transform: none;
+}

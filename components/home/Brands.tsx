@@ -87,7 +87,7 @@ const Brands: React.FC = () => {
   ];
 
   return (
-    <section className={styles.brandsSection}>
+    <section id="Brands" className={styles.brandsSection}>
 
       <div className={styles.header}>
 
@@ -104,22 +104,21 @@ const Brands: React.FC = () => {
           {infiniteBrands.map(
             (brand, index) => (
 
-            <Link
-              href={brand.link}
-              key={`${brand.id}-${index}`}
-              className={styles.brandCard}
-            >
+              <div
+                key={`${brand.id}-${index}`}
+                className={styles.brandCard}
+              >
 
-              <span className={styles.tag}>
-                {brand.tag}
-              </span>
+                <span className={styles.tag}>
+                  {brand.tag}
+                </span>
 
-              <h3 className={styles.brandName}>
-                {brand.name}
-              </h3>
+                <h3 className={styles.brandName}>
+                  {brand.name}
+                </h3>
 
-            </Link>
-          ))}
+              </div>
+            ))}
         </div>
       </div>
     </section>

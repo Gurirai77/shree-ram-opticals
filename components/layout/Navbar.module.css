@@ -41,6 +41,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+
+  margin-left: 40px;
 }
 
 .logo h1 {
@@ -76,6 +79,8 @@
   align-items: center;
 
   gap: 28px;
+
+  margin-right: 140px;
 }
 
 .navLinks a {
@@ -94,6 +99,8 @@
 .navLinks a::after {
   content: "";
 
+  
+
   position: absolute;
 
   left: 0;
@@ -109,6 +116,7 @@
 
 .navLinks a:hover {
   color: #c8a96b;
+  cursor: pointer;
 }
 
 .navLinks a:hover::after {
@@ -116,7 +124,7 @@
 }
 
 .offerLink {
-  color: #d62828 !important;
+  color: #D4B483!important;
 }
 
 /* ---------- ICONS ---------- */
@@ -214,6 +222,13 @@
     font-size: 7px;
     letter-spacing: 4px;
   }
+  .logo h1 {
+  font-size: 22px;
+
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
 }
 
 @media (max-width: 600px) {
@@ -233,6 +248,14 @@
     width: 36px;
     height: 36px;
   }
+  .logo h1 {
+  font-size: 22px;
+
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
 }
 
 
@@ -326,6 +349,17 @@
   .logo p {
     font-size: 9px;
   }
+.container {
+  flex-direction: row-reverse;
+
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 0;
+
+  margin-right: auto;
+}
 }
 
 
@@ -391,3 +425,4 @@
 
   line-height: 1;
 }
+

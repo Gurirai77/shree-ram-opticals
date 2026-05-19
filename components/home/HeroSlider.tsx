@@ -64,10 +64,10 @@ export default function HeroSlider() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <a
+            {/* <a
               href={slide.link}
               className={styles.bannerLink}
-            >
+            > */}
               <div
                 className={
                   styles.imageWrapper
@@ -95,7 +95,7 @@ export default function HeroSlider() {
                   className={`${styles.bannerImage} ${styles.mobileImage}`}
                 />
               </div>
-            </a>
+            {/* </a> */}
           </SwiperSlide>
         ))}
       </Swiper>

@@ -28,7 +28,7 @@ export default function Home() {
       <HeroSlider />
       <CategorySection />
       <TrendingCollections />
-      <BestSellers />
+      {/* <BestSellers /> */}
       <Brands/>
       <WhyChooseUs />
       <OurJourney />

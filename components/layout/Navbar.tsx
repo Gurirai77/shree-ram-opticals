@@ -41,34 +41,34 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className={styles.navLinks}>
-          <a href="/">
+          <a href="#Home">
             Home
           </a>
 
-          <a href="/eyeglasses">
-            Eyeglasses
+          <a href="#COLLECTION">
+            Collection
           </a>
 
-          <a href="/sunglasses">
-            Sunglasses
+          <a href="#WhyChooseUs">
+            Why Choose Us
           </a>
 
-          <a href="/contact-lenses">
-            Contact Lenses
+          <a href="#CustomerReviews">
+            Customer Reviews
           </a>
 
-          <a href="/brands">Brands</a>
+          <a href="#Brands">Brands</a>
 
           <a
-            href="/offers"
+            href="/#OurJourney"
             className={styles.offerLink}
           >
-            Offers
+            Our Journey
           </a>
         </nav>
 
         {/* Right Icons */}
-        <div className={styles.icons}>
+        {/* <div className={styles.icons}>
           <a
             href="/cart"
             className={`${styles.cartButton} ${totalItems > 0 ? styles.activeCart : ""
@@ -80,7 +80,7 @@ export default function Navbar() {
               {totalItems}
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Dropdown */}
@@ -88,29 +88,46 @@ export default function Navbar() {
         className={`${styles.mobileNav} ${open ? styles.showMenu : ""
           }`}
       >
-        <a href="/">
+        <a
+          href="#Home"
+          onClick={() => setOpen(false)}
+        >
           Home
         </a>
 
-         <a href="/eyeglasses">
-          Eyeglasses
+        <a
+          href="#COLLECTION"
+          onClick={() => setOpen(false)}
+        >
+          Collection
         </a>
-
-        <a href="/sunglasses">
-          Sunglasses
-        </a>
-
-        <a href="/contact-lenses">
-          Contact Lenses
-        </a>
-
-        <a href="/brands">Brands</a>
 
         <a
-          href="/offers"
-          className={styles.offerLink}
+          href="#WhyChooseUs"
+          onClick={() => setOpen(false)}
         >
-          Offers
+          Why Choose Us
+        </a>
+
+        <a
+          href="#CustomerReviews"
+          onClick={() => setOpen(false)}
+        >
+          Customer Reviews
+        </a>
+        <a
+          href="#Brands"
+          onClick={() => setOpen(false)}
+        >
+          Brands
+        </a>
+
+        <a
+          href="/#OurJourney"
+          className={styles.offerLink}
+          onClick={() => setOpen(false)}
+        >
+          Our Journey
         </a>
       </div>
     </header>

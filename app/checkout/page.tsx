@@ -19,6 +19,8 @@ export default function CheckoutPage() {
   const [showSuccess, setShowSuccess] =
     useState(false);
 
+  const [paymentDone, setPaymentDone] =
+    useState(false);
 
   const [name, setName] =
     useState("");
@@ -51,20 +53,20 @@ Qty: ${item.quantity}
     )
     .join("\n");
 
-    const isFormValid =
+  const isFormValid =
 
-  name.trim() !== "" &&
+    name.trim() !== "" &&
 
-  phone.trim() !== "" &&
+    phone.trim() !== "" &&
 
-  address.trim() !== "" &&
+    address.trim() !== "" &&
 
-  payment.trim() !== "";
+    payment.trim() !== "";
 
   // WHATSAPP MESSAGE
   const whatsappMessage =
 
-  
+
     `
 
   
@@ -197,9 +199,9 @@ ${productsText}
               {/* COD */}
               <div
                 className={`${styles.paymentCard} ${payment ===
-                    "Cash On Delivery"
-                    ? styles.activePayment
-                    : ""
+                  "Cash On Delivery"
+                  ? styles.activePayment
+                  : ""
                   }`}
                 onClick={() =>
                   setPayment(
@@ -231,9 +233,9 @@ ${productsText}
               {/* ONLINE */}
               <div
                 className={`${styles.paymentCard} ${payment ===
-                    "Online Payment"
-                    ? styles.activePayment
-                    : ""
+                  "Online Payment"
+                  ? styles.activePayment
+                  : ""
                   }`}
                 onClick={() =>
                   setPayment(
@@ -263,6 +265,28 @@ ${productsText}
               </div>
 
             </div>
+
+            {payment === "Online Payment" && (
+              <div className={styles.onlinePaymentBox}>
+
+                <a
+                  href="https://razorpay.me/@shreeramopticals"
+                  target="_blank"
+                  className={styles.payNowBtn}
+                >
+                  Pay Now
+                </a>
+
+                <button
+                  type="button"
+                  className={styles.paymentDoneBtn}
+                  onClick={() => setPaymentDone(true)}
+                >
+                  I Have Paid
+                </button>
+
+              </div>
+            )}
 
             {showSuccess && (
 
@@ -297,51 +321,33 @@ ${productsText}
 
               {/* WHATSAPP BUTTON */}
               <button
-  type="button"
-  disabled={!isFormValid}
-  className={styles.button}
-  onClick={() => {
-
-    window.open(
-      `https://wa.me/917206881771?text=${encodeURIComponent(
-        whatsappMessage
-      )}`,
-      "_blank"
-    );
-
-    // CLEAR INPUTS
-    setName("");
-
-    setPhone("");
-
-    setAddress("");
-
-    setPayment(
-      "Cash On Delivery"
-    );
-
-    // SUCCESS TOAST
-    setShowSuccess(true);
-
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000);
-
-  }}
->
-
-  <MessageCircle size={20} />
-
-  Confirm Order On WhatsApp
-
-</button>
-
-              {/* SECOND BUTTON */}
-              <button
                 type="button"
-                className={styles.secondaryBtn}
+                disabled={
+                  !isFormValid ||
+                  (payment === "Online Payment" && !paymentDone)
+                }
+                className={styles.button}
                 onClick={() => {
 
+                  window.open(
+                    `https://wa.me/917206881771?text=${encodeURIComponent(
+                      whatsappMessage
+                    )}`,
+                    "_blank"
+                  );
+
+                  // CLEAR INPUTS
+                  setName("");
+
+                  setPhone("");
+
+                  setAddress("");
+
+                  setPayment(
+                    "Cash On Delivery"
+                  );
+
+                  // SUCCESS TOAST
                   setShowSuccess(true);
 
                   setTimeout(() => {
@@ -350,6 +356,33 @@ ${productsText}
 
                 }}
               >
+
+                <MessageCircle size={20} />
+
+                Confirm Order On WhatsApp
+
+              </button>
+
+              {/* SECOND BUTTON */}
+             <button
+  type="button"
+  className={styles.secondaryBtn}
+
+  disabled={
+    payment === "Online Payment" &&
+    !paymentDone
+  }
+
+  onClick={() => {
+
+    setShowSuccess(true);
+
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+
+  }}
+>
 
                 <CheckCircle2 size={18} />
 

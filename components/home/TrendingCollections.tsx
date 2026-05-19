@@ -34,7 +34,9 @@ export default function TrendingCollections() {
 
           {/* Left Large Banner */}
           <Link
-            href="/eyeglasses"
+            href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.largeCard}
           >
 
@@ -73,7 +75,9 @@ export default function TrendingCollections() {
 
             {/* Card 1 */}
             <Link
-              href="/eyeglasses"
+              href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.smallCard}
             >
 
@@ -101,7 +105,9 @@ export default function TrendingCollections() {
 
             {/* Card 2 */}
             <Link
-              href="/sunglasses"
+              href="https://maps.app.goo.gl/JEzBJE9TKyXvWFG17"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.smallCard}
             >
 

@@ -68,7 +68,7 @@ const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="WhyChooseUs" className={styles.section}>
 
       <div className={styles.container}>
 

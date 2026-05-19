@@ -116,11 +116,11 @@ export default function Footer() {
                     <div className={styles.links}>
                         <h4>CUSTOMER SUPPORT</h4>
 
-                        <a href="#">Track Order</a>
-                        <a href="#">Shipping Policy</a>
+                        {/* <a href="#">Contact</a> */}
+                        {/* <a href="#">Shipping Policy</a> */}
                         <a href="#">Return Policy</a>
                         <a href="#">FAQs</a>
-                        <a href="#">Privacy Policy</a>
+                        {/* <a href="#">Privacy Policy</a> */}
                     </div>
 
                     {/* Contact */}
@@ -169,13 +169,13 @@ export default function Footer() {
                     </div>
 
                     {/* Center */}
-                    <div className={styles.bottomLinks}>
+                    {/* <div className={styles.bottomLinks}>
                         <a href="#">Privacy Policy</a>
 
                         <a href="#">Terms & Conditions</a>
 
                         <a href="#">Sitemap</a>
-                    </div>
+                    </div> */}
 
                     {/* Right */}
                     <button

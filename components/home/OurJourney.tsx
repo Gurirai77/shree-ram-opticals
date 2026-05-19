@@ -46,7 +46,7 @@ const timeline = [
 
 export default function OurJourney() {
   return (
-    <section className={styles.section}>
+    <section id="OurJourney" className={styles.section}>
       <div className={styles.container}>
         {/* Heading */}
         <div className={styles.heading}>
